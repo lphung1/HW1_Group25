@@ -13,6 +13,7 @@ import android.widget.EditText;
 public class NewContact extends AppCompatActivity {
 
     String fname, lname, company, phone, email, url, address, birthday, nickname, fb, twitter, skype, youtube = null;
+    String [] contactFields = new String[13];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,21 @@ public class NewContact extends AppCompatActivity {
         final EditText skypeText = (EditText) findViewById(R.id.skypeField);
         final EditText youtubeText = (EditText) findViewById(R.id.youtubeField);
 
+        contactFields[0] = fnameText.getText().toString();
+        contactFields[1] = lnameText.getText().toString();
+        contactFields[2] = companyText.getText().toString();
+        contactFields[3] = phoneText.getText().toString();
+        contactFields[4] = emailText.getText().toString();
+        contactFields[5] = urlText.getText().toString();
+        contactFields[6] = addressText.getText().toString();
+        contactFields[7] = birthdayText.getText().toString();
+        contactFields[8] = nicknameText.getText().toString();
+        contactFields[9] = fbText.getText().toString();
+        contactFields[10] = twitterText.getText().toString();
+        contactFields[11] = skypeText.getText().toString();
+        contactFields[12] = youtubeText.getText().toString();
+
+
 
         findViewById(R.id.addPhoto).setOnClickListener(new View.OnClickListener(){
             @Override
@@ -50,8 +66,12 @@ public class NewContact extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent();
+
                 Log.d("Clicked", "Submit clicked");
 
+                MainActivity.contactArrayList.add(new Contact(contactFields));
+
+                Log.d("Arraylist Contents", "Current items " + MainActivity.contactArrayList.size());
 
                 finish();
             }

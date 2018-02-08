@@ -5,9 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.util.Log;
+import android.util.*;
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    public static ArrayList<Contact> contactArrayList = new ArrayList<Contact>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
