@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/createContactLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:paddingBottom="15dp"
+            android:paddingEnd="10dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <ImageView
+                android:id="@+id/addPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                app:srcCompat="@drawable/add_photo" />
+
+            <EditText
+                android:id="@+id/fNameField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="First Name"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/lNameField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="Last Name"
+                android:ems="10"
+                android:hint="Last Name"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/companyField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Company"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/phoneField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Phone Number"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/emailField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/urlField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="URL"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/addressField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Address"
+                android:inputType="textPostalAddress" />
+
+            <EditText
+                android:id="@+id/birthdayField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Birthday"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/nicknameField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nickname"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/facebookField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/facebookField"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/twitterField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Twitter URL"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/skypeField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="skype"
+                android:ems="10"
+                android:hint="@string/skypeField"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/youtubeField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/youtubeField"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:text="Submit"
+                tools:text="@string/submitButton" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:padding="8dp" />
+        </LinearLayout>
+
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
