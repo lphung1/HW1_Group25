@@ -5,11 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.util.Log;
-import android.util.*;
+
 import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final String CONTACT_ARRAY_LIST_KEY = "arraylist";
+    public static final String CONTACT_OBJECT = "somecontacts";
+    public static final String CONTACT_FIELDS_ARRAY = "contacts";
 
     public static ArrayList<Contact> contactArrayList = new ArrayList<Contact>();
 
@@ -20,18 +24,22 @@ public class MainActivity extends AppCompatActivity {
 
         setTitle("Contacts");
 
+        //Create new contact button
         findViewById(R.id.createNewButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent i = new Intent(MainActivity.this , NewContact.class);
+                i.putExtra(CONTACT_ARRAY_LIST_KEY, contactArrayList);
+
                 startActivity(i);
                 Log.d("Clicked", "Create contact button clicked");
-
+                //Log.d("Arraylist Contents", "" + contactArrayList);
 
             }
         });
 
+        //edit button
         findViewById(R.id.editButton).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -41,11 +49,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //display contact button
+        findViewById(R.id.displayButton).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                Log.d("Clicked", "display button clicked");
+                Intent i = new Intent(MainActivity.this , DisplayContacts.class);
+                startActivity(i);
 
 
-
-
+            }
+        });
 
 
     }
+
 }

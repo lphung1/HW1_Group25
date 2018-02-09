@@ -1,41 +1,42 @@
 package com.example.loiphung.hw01_group25;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.util.*;
-import android.content.Intent;
 import android.widget.EditText;
 
 public class NewContact extends AppCompatActivity {
 
     String fname, lname, company, phone, email, url, address, birthday, nickname, fb, twitter, skype, youtube = null;
-    String [] contactFields = new String[13];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_contact);
 
+
+
         setTitle("Create New Contact");
 
-        final EditText fnameText = (EditText) findViewById(R.id.fNameField);
-        final EditText lnameText = (EditText) findViewById(R.id.lNameField);
-        final EditText companyText = (EditText) findViewById(R.id.companyField);
-        final EditText phoneText = (EditText) findViewById(R.id.phoneField);
-        final EditText emailText = (EditText) findViewById(R.id.emailField);
-        final EditText urlText = (EditText) findViewById(R.id.urlField);
-        final EditText addressText = (EditText) findViewById(R.id.addressField);
-        final EditText birthdayText = (EditText) findViewById(R.id.birthdayField);
-        final EditText nicknameText = (EditText) findViewById(R.id.nicknameField);
-        final EditText fbText = (EditText) findViewById(R.id.facebookField);
-        final EditText twitterText = (EditText) findViewById(R.id.twitterField);
-        final EditText skypeText = (EditText) findViewById(R.id.skypeField);
-        final EditText youtubeText = (EditText) findViewById(R.id.youtubeField);
+        final EditText fnameText = findViewById(R.id.fNameField);
+        final EditText lnameText = findViewById(R.id.lNameField);
+        final EditText companyText = findViewById(R.id.companyField);
+        final EditText phoneText = findViewById(R.id.phoneField);
+        final EditText emailText = findViewById(R.id.emailField);
+        final EditText urlText = findViewById(R.id.urlField);
+        final EditText addressText = findViewById(R.id.addressField);
+        final EditText birthdayText = findViewById(R.id.birthdayField);
+        final EditText nicknameText = findViewById(R.id.nicknameField);
+        final EditText fbText = findViewById(R.id.facebookField);
+        final EditText twitterText = findViewById(R.id.twitterField);
+        final EditText skypeText = findViewById(R.id.skypeField);
+        final EditText youtubeText = findViewById(R.id.youtubeField);
 
+        final String [] contactFields = new String[13];
+
+        /*
         contactFields[0] = fnameText.getText().toString();
         contactFields[1] = lnameText.getText().toString();
         contactFields[2] = companyText.getText().toString();
@@ -49,9 +50,16 @@ public class NewContact extends AppCompatActivity {
         contactFields[10] = twitterText.getText().toString();
         contactFields[11] = skypeText.getText().toString();
         contactFields[12] = youtubeText.getText().toString();
+        */
 
 
 
+
+
+
+        /*
+        Add photo button
+         */
         findViewById(R.id.addPhoto).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -60,18 +68,35 @@ public class NewContact extends AppCompatActivity {
         });
 
 
-
+        /*
+        submit button
+         */
         findViewById(R.id.submitButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent();
-
                 Log.d("Clicked", "Submit clicked");
 
-                MainActivity.contactArrayList.add(new Contact(contactFields));
+                Contact c = new Contact(fnameText.getText().toString(),
+                        lnameText.getText().toString(),
+                        companyText.getText().toString(),
+                        phoneText.getText().toString(),
+                        emailText.getText().toString(),
+                        urlText.getText().toString(),
+                        addressText.getText().toString(),
+                        birthdayText.getText().toString(),
+                        nicknameText.getText().toString(),
+                        fbText.getText().toString(),
+                        twitterText.getText().toString(),
+                        skypeText.getText().toString(),
+                        youtubeText.getText().toString()
+                );
 
-                Log.d("Arraylist Contents", "Current items " + MainActivity.contactArrayList.size());
+                MainActivity.contactArrayList.add(c);
+
+                Log.d("Contact", "" + c.getFirstLastName() + c.getLname() + c.getCompany());
+
+                //Log.d("Array content", "First and last name: " + (fnameText.getText().toString()) + contactFields[1]);
 
                 finish();
             }
