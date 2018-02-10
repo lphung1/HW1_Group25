@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Created by LoiPhung on 2/8/18.
+ * Test for git changes
  */
 
 public class Contact implements Serializable{
