@@ -2,9 +2,11 @@ package com.example.loiphung.hw01_group25;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.util.*;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class NewContact extends AppCompatActivity {
 
@@ -34,27 +36,6 @@ public class NewContact extends AppCompatActivity {
         final EditText skypeText = findViewById(R.id.skypeField);
         final EditText youtubeText = findViewById(R.id.youtubeField);
 
-        final String [] contactFields = new String[13];
-
-        /*
-        contactFields[0] = fnameText.getText().toString();
-        contactFields[1] = lnameText.getText().toString();
-        contactFields[2] = companyText.getText().toString();
-        contactFields[3] = phoneText.getText().toString();
-        contactFields[4] = emailText.getText().toString();
-        contactFields[5] = urlText.getText().toString();
-        contactFields[6] = addressText.getText().toString();
-        contactFields[7] = birthdayText.getText().toString();
-        contactFields[8] = nicknameText.getText().toString();
-        contactFields[9] = fbText.getText().toString();
-        contactFields[10] = twitterText.getText().toString();
-        contactFields[11] = skypeText.getText().toString();
-        contactFields[12] = youtubeText.getText().toString();
-        */
-
-
-
-
 
 
         /*
@@ -77,30 +58,39 @@ public class NewContact extends AppCompatActivity {
 
                 Log.d("Clicked", "Submit clicked");
 
-                Contact c = new Contact(R.id.contactImageView,
-                        fnameText.getText().toString(),
-                        lnameText.getText().toString(),
-                        companyText.getText().toString(),
-                        phoneText.getText().toString(),
-                        emailText.getText().toString(),
-                        urlText.getText().toString(),
-                        addressText.getText().toString(),
-                        birthdayText.getText().toString(),
-                        nicknameText.getText().toString(),
-                        fbText.getText().toString(),
-                        twitterText.getText().toString(),
-                        skypeText.getText().toString(),
-                        youtubeText.getText().toString()
-                );
+                if(fnameText.getText().toString().isEmpty() || lnameText.getText().toString().isEmpty() || phoneText.getText().toString().isEmpty()  ){
 
-                MainActivity.contactArrayList.add(c);
+                    Toast fieldsRequired = Toast.makeText(NewContact.this, "First name, Last name, and Phone number is required", Toast.LENGTH_SHORT);
+                    fieldsRequired.show();
+                    fieldsRequired.setGravity(Gravity.CENTER, 0, 0);
+                    Log.d("fname Contains: ", "" + fnameText.getText().toString().isEmpty() + fnameText.getText().toString());
+                    Log.d("lname Contains: ", "" + lnameText.getText().toString().isEmpty() + lnameText.getText().toString());
+                    Log.d("phone Contains: ", "" + phoneText.getText().toString().isEmpty() + phoneText.getText().toString());
 
-                Log.d("Contact", "" + c.getFirstLastName() + c.getLname() + c.getCompany());
-                Log.d("ArrayContent", "MainActivity.contactArrayList" + MainActivity.contactArrayList);
+                }
+                else {
+                    Contact c = new Contact(R.id.contactImageView,
+                            fnameText.getText().toString(),
+                            lnameText.getText().toString(),
+                            companyText.getText().toString(),
+                            phoneText.getText().toString(),
+                            emailText.getText().toString(),
+                            urlText.getText().toString(),
+                            addressText.getText().toString(),
+                            birthdayText.getText().toString(),
+                            nicknameText.getText().toString(),
+                            fbText.getText().toString(),
+                            twitterText.getText().toString(),
+                            skypeText.getText().toString(),
+                            youtubeText.getText().toString()
+                    );
+                    MainActivity.contactArrayList.add(c);
+                    Log.d("Contact", "" + c.getFirstLastName() + c.getLname() + c.getCompany());
+                    Log.d("ArrayContent", "MainActivity.contactArrayList" + MainActivity.contactArrayList);
 
-                //Log.d("Array content", "First and last name: " + (fnameText.getText().toString()) + contactFields[1]);
+                    finish();
+                }
 
-                finish();
             }
         });
 

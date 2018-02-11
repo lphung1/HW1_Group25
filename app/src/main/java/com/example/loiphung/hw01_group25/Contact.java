@@ -16,12 +16,15 @@ public class Contact implements Serializable{
 
     String [] contact;
     String fname, lname, company, phone, email, url, address, birthday, nickname, fb, twitter, skype, youtube = null;
+
     int imageID;
     public static final DecimalFormat phoneFormatD = new DecimalFormat("0000000000");
     public static final MessageFormat phoneFormatM = new MessageFormat("({0}) {1}-{2}");
 
-    public Contact(String[] contact) {
-        this.contact = contact;
+    public Contact(String fname, String lname, String phone) {
+        this.fname = fname;
+        this.lname = lname;
+        this.phone = phone;
     }
 
     public Contact(int image, String fname, String lname, String company, String phone, String email, String url, String address, String birthday, String nickname, String fb, String twitter, String skype, String youtube) {
@@ -29,6 +32,9 @@ public class Contact implements Serializable{
         this.lname = lname;
         this.company = company;
         this.phone = phone;
+        if(this.phone == null){
+            this.phone = "0000000000";
+        }
         this.email = email;
         this.url = url;
         this.address = address;
@@ -112,7 +118,7 @@ public class Contact implements Serializable{
      * Method Created by Yamil Garcia Hernandez on 25/4/16.
      * Stack overflow on formatting phone number
      */
-    private static String formatPhoneNumber(Object phone){
+    private static String formatPhoneNumber(Object phone) {
         double p = 0;
         if (phone instanceof String)
             p = Double.valueOf((String) phone);
@@ -122,6 +128,7 @@ public class Contact implements Serializable{
             p = (Float) phone;
         if (phone instanceof Double)
             p = (Double) phone;
+
         String fot = phoneFormatD.format(p);
 
         String extra = fot.length() > 10 ? fot.substring(0, fot.length() - 10) : "";

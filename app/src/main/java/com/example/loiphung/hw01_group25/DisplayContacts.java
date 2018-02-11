@@ -1,5 +1,6 @@
 package com.example.loiphung.hw01_group25;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,7 +24,15 @@ public class DisplayContacts extends AppCompatActivity {
         ListView lv = findViewById(R.id.listView);
         CustomAdapter customAdapter = new CustomAdapter();
         lv.setAdapter(customAdapter);
-        
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(DisplayContacts.this, NewContact.class);
+
+                startActivity(intent);
+            }
+        });
 
     }
 

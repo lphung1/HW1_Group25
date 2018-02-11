@@ -17,12 +17,15 @@ public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<Contact> contactArrayList = new ArrayList<Contact>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         setTitle("Contacts");
+        contactArrayList.add(new Contact("John", "Doe", "0000000000"));
+        contactArrayList.add(new Contact("Sam", "Smith", "1234567890"));
+        contactArrayList.add(new Contact("Elon", "Musk", "9876543210"));
 
         //Create new contact button
         findViewById(R.id.createNewButton).setOnClickListener(new View.OnClickListener() {
@@ -33,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra(CONTACT_ARRAY_LIST_KEY, contactArrayList);
                 Log.d("Clicked", "Create contact button clicked");
                 startActivity(i);
-
-                //Log.d("Arraylist Contents", "" + contactArrayList);
 
             }
         });
