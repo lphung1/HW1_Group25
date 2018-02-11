@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent i = new Intent(MainActivity.this , NewContact.class);
                 i.putExtra(CONTACT_ARRAY_LIST_KEY, contactArrayList);
-
-                startActivity(i);
                 Log.d("Clicked", "Create contact button clicked");
+                startActivity(i);
+
                 //Log.d("Arraylist Contents", "" + contactArrayList);
 
             }
@@ -61,6 +61,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        findViewById(R.id.finishButton).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                Log.d("Clicked", "display button clicked");
+                Intent i = new Intent();
+                finish();
+            }
+        });
+
+
 
 
     }

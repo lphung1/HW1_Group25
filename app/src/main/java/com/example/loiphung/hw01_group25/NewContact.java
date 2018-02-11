@@ -77,7 +77,8 @@ public class NewContact extends AppCompatActivity {
 
                 Log.d("Clicked", "Submit clicked");
 
-                Contact c = new Contact(fnameText.getText().toString(),
+                Contact c = new Contact(R.id.contactImageView,
+                        fnameText.getText().toString(),
                         lnameText.getText().toString(),
                         companyText.getText().toString(),
                         phoneText.getText().toString(),
@@ -95,6 +96,7 @@ public class NewContact extends AppCompatActivity {
                 MainActivity.contactArrayList.add(c);
 
                 Log.d("Contact", "" + c.getFirstLastName() + c.getLname() + c.getCompany());
+                Log.d("ArrayContent", "MainActivity.contactArrayList" + MainActivity.contactArrayList);
 
                 //Log.d("Array content", "First and last name: " + (fnameText.getText().toString()) + contactFields[1]);
 

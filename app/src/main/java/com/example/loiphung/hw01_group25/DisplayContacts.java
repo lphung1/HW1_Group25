@@ -2,24 +2,28 @@ package com.example.loiphung.hw01_group25;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class DisplayContacts extends AppCompatActivity {
 
-    ListView lv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_contacts);
+        setContentView(R.layout.activity_relative_contacts);
         setTitle("Contacts List");
-        lv = (ListView) findViewById(R.id.contactListView);
+        ListView lv = findViewById(R.id.listView);
+        //CustomAdapter adapter = new CustomAdapter(this, R.layout.item_row, MainActivity.contactArrayList);
 
-
-        ArrayAdapter arrayAdapter = new ArrayAdapter ( DisplayContacts.this, android.R.layout.simple_list_item_1 , MainActivity.contactArrayList);
-
+        ArrayAdapter arrayAdapter = new ArrayAdapter ( DisplayContacts.this, R.layout.item_row , MainActivity.contactArrayList);
         lv.setAdapter(arrayAdapter);
+
+
+
+       // lv.setAdapter(adapter);
+
 
     }
 }
