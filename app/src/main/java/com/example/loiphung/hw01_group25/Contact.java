@@ -5,10 +5,11 @@ import android.content.Context;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.text.*;
 
 /**
  * Created by LoiPhung on 2/8/18.
- * Test for git changes
+ *
  */
 
 public class Contact implements Serializable{
@@ -16,6 +17,8 @@ public class Contact implements Serializable{
     String [] contact;
     String fname, lname, company, phone, email, url, address, birthday, nickname, fb, twitter, skype, youtube = null;
     int imageID;
+    public static final DecimalFormat phoneFormatD = new DecimalFormat("0000000000");
+    public static final MessageFormat phoneFormatM = new MessageFormat("({0}) {1}-{2}");
 
     public Contact(String[] contact) {
         this.contact = contact;
@@ -41,7 +44,7 @@ public class Contact implements Serializable{
     @Override
     public String toString() {
 
-        return (getFirstLastName() + "\n" + getPhone());
+        return (getFirstLastName() + "\n" + this.formatPhoneNumber(phone));
     }
 
     public String getFirstLastName(){
@@ -104,6 +107,37 @@ public class Contact implements Serializable{
     public int getImageID() {
         return imageID;
     }
+
+    /**
+     * Method Created by Yamil Garcia Hernandez on 25/4/16.
+     * Stack overflow on formatting phone number
+     */
+    private static String formatPhoneNumber(Object phone){
+        double p = 0;
+        if (phone instanceof String)
+            p = Double.valueOf((String) phone);
+        if (phone instanceof Integer)
+            p = (Integer) phone;
+        if (phone instanceof Float)
+            p = (Float) phone;
+        if (phone instanceof Double)
+            p = (Double) phone;
+        String fot = phoneFormatD.format(p);
+
+        String extra = fot.length() > 10 ? fot.substring(0, fot.length() - 10) : "";
+        fot = fot.length() > 10 ? fot.substring(fot.length() - 10, fot.length()) : fot;
+
+        String[] arr = {
+                (fot.charAt(0) != '0') ? fot.substring(0, 3) : (fot.charAt(1) != '0') ? fot.substring(1, 3) : fot.substring(2, 3),
+                fot.substring(3, 6),
+                fot.substring(6)
+        };
+        String r = phoneFormatM.format(arr);
+        r = (r.contains("(0)")) ? r.replace("(0) ", "") : r;
+        r = (extra != "") ? ("+" + extra + " " + r) : r;
+        return (r);
+    }
+
 
 }
 

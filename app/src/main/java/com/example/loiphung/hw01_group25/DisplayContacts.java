@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -22,29 +23,23 @@ public class DisplayContacts extends AppCompatActivity {
         ListView lv = findViewById(R.id.listView);
         CustomAdapter customAdapter = new CustomAdapter();
         lv.setAdapter(customAdapter);
-
-
+        
 
     }
 
     public class CustomAdapter extends BaseAdapter {
         @Override
         public int getCount() {
-
             return MainActivity.contactArrayList.size();
-
         }
-
         @Override
         public Object getItem(int i) {
             return null;
         }
-
         @Override
         public long getItemId(int i) {
             return 0;
         }
-
         @Override
         public View getView(int i, View convertView, ViewGroup parent) {
 
