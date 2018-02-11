@@ -41,7 +41,7 @@ public class Contact implements Serializable{
     @Override
     public String toString() {
 
-        return (getFirstLastName());
+        return (getFirstLastName() + "\n" + getPhone());
     }
 
     public String getFirstLastName(){
@@ -61,6 +61,7 @@ public class Contact implements Serializable{
     }
 
     public String getPhone() {
+
         return phone;
     }
 
@@ -103,6 +104,7 @@ public class Contact implements Serializable{
     public int getImageID() {
         return imageID;
     }
+
 }
 
 

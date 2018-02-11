@@ -65,7 +65,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Phone Number"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:maxLength="10" />
 
             <EditText
                 android:id="@+id/emailField"
